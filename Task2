@@ -1,0 +1,51 @@
+from cProfile import label
+from tkinter import*
+screen=Tk()
+screen.geometry("400x480")
+#BUTTON FUNCTION
+def calculate():
+    stu_id= int,CHAR,(studentid_entry.get())
+    Eng_marks=int(english_entry.get())
+    Hi_marks=int(hindi_entry.get())
+    Ma_marks=int(maths_entry.get())
+    Sc_marks=int(science_entry.get())
+    So_marks=int(social_entry.get())
+    Total=(Eng_marks + Hi_marks + Ma_marks + Sc_marks + So_marks)
+    Average=int(Total/5)
+    Label(screen,text=Total,font="impack 15 bold").place(x=175,y=280)
+    Label(screen,text=Average,font="impack 15 bold").place(x=175,y=315)
+    label=Label(screen,text="Total",font="impack 14 bold").place(x=30,y=285)
+    label=Label(screen,text="Average",font="impack 14 bold").place(x=30,y=315)
+    label=Label(screen,text="Grade",font="impack 14 bold").place(x=30,y=345)
+    if Average>40:
+        grade="PASS"
+        Label(screen,text=grade,font="impack 15 bold",fg="green").place(x=175,y=345)
+    else:
+        grade="FAIL"
+        Label(screen,text=grade,font="impack 15 bold",fg="red").place(x=175,y=345)
+#HEADING
+label=Label(screen,text="STUDENT GRADE",font=("impack",20,"bold"),fg="purple").pack(fill=X)
+#SUBJECTS
+label=Label(screen,text="StudentID",font="23").place(x=30,y=70)
+label=Label(screen,text="English",font="23").place(x=30,y=105)
+label=Label(screen,text="Hindi",font="23").place(x=30,y=140)
+label=Label(screen,text="Maths",font="23").place(x=30,y=175)
+label=Label(screen,text="Science",font="23").place(x=30,y=210)
+label=Label(screen,text="Social",font="23").place(x=30,y=245)
+#ENTRY BOX
+studentid_entry =Entry(screen,font="20",width=15,bd=2)
+studentid_entry.place(x=180,y=70)
+english_entry =Entry(screen,font="20",width=15,bd=2)
+english_entry.place(x=180,y=105)
+hindi_entry =Entry(screen,font="20",width=15,bd=2)
+hindi_entry.place(x=180,y=140)
+maths_entry =Entry(screen,font="20",width=15,bd=2)
+maths_entry.place(x=180,y=175)
+science_entry =Entry(screen,font="20",width=15,bd=2)
+science_entry.place(x=180,y=210)
+social_entry =Entry(screen,font="20",width=15,bd=2)
+social_entry.place(x=180,y=245)
+#BUTTON
+Button(screen,text="calculate",font="impact 15",bg="light blue",command=lambda:calculate()).place(x=100,y=400)
+Button(screen,text="Exit",font="impact 15",bg="red",fg="white",width=8,command=lambda:exit()).place(x=250,y=400)
+mainloop()
